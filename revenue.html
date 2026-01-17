@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIRIUM - Revenue</title>
+    <link rel="stylesheet" href="assets/css/revenue.css">
+</head>
+
+<body>
+    <div class="background"></div>
+
+    <!-- Mobile Menu Toggle -->
+    <button class="mobile-menu-toggle" id="mobileMenuToggle">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+    </button>
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="logo-small">
+                <svg width="35" height="35" viewBox="0 0 60 60" fill="none">
+                    <path d="M30 10L45 20V40L30 50L15 40V20L30 10Z" stroke="#888" stroke-width="1.5" fill="none" />
+                </svg>
+            </div>
+            <h2 class="sidebar-brand">SIRIUM</h2>
+        </div>
+
+        <nav class="sidebar-nav">
+            <a href="dashboard.html" class="nav-item">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="3" width="7" height="7"></rect>
+                    <rect x="14" y="3" width="7" height="7"></rect>
+                    <rect x="14" y="14" width="7" height="7"></rect>
+                    <rect x="3" y="14" width="7" height="7"></rect>
+                </svg>
+                <span>Dashboard</span>
+            </a>
+            <a href="user_table.html" class="nav-item">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="8.5" cy="7" r="4"></circle>
+                    <path d="M20 8v6M23 11h-6"></path>
+                </svg>
+                <span>Users</span>
+            </a>
+            <a href="revenue.html" class="nav-item active">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="12" y1="1" x2="12" y2="23"></line>
+                    <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                </svg>
+                <span>Revenue</span>
+            </a>
+            <a href="report.html" class="nav-item">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                    <polyline points="7 10 12 15 17 10"></polyline>
+                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
+                <span>Reports</span>
+            </a>
+            <a href="user_profile.html" class="nav-item">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+                <span>Profile</span>
+            </a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <a href="sign_in.html" class="nav-item">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                    <polyline points="16 17 21 12 16 7"></polyline>
+                    <line x1="21" y1="12" x2="9" y2="12"></line>
+                </svg>
+                <span>Logout</span>
+            </a>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Header -->
+        <header class="dashboard-header">
+            <div class="header-left">
+                <h1 class="page-title">Revenue Analytics</h1>
+                <p class="page-subtitle">Track and analyze your revenue streams</p>
+            </div>
+            <div class="header-right">
+                <select class="time-filter">
+                    <option value="7days">Last 7 Days</option>
+                    <option value="30days" selected>Last 30 Days</option>
+                    <option value="3months">Last 3 Months</option>
+                    <option value="year">This Year</option>
+                </select>
+                <button class="btn-primary" id="exportBtn">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="7 10 12 15 17 10"></polyline>
+                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                    </svg>
+                    <span>Export</span>
+                </button>
+            </div>
+        </header>
+
+        <!-- Stats Cards -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-header">
+                    <div class="stat-icon green">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <line x1="12" y1="1" x2="12" y2="23"></line>
+                            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                        </svg>
+                    </div>
+                    <span class="stat-change positive">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <polyline points="18 15 12 9 6 15"></polyline>
+                        </svg>
+                        +23.5%
+                    </span>
+                </div>
+                <h3 class="stat-value">$124,563</h3>
+                <p class="stat-label">Total Revenue</p>
+                <div class="stat-mini-chart" id="totalRevenueChart"></div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-header">
+                    <div class="stat-icon blue">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                        </svg>
+                    </div>
+                    <span class="stat-change positive">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <polyline points="18 15 12 9 6 15"></polyline>
+                        </svg>
+                        +18.2%
+                    </span>
+                </div>
+                <h3 class="stat-value">$8,234</h3>
+                <p class="stat-label">Average Monthly</p>
+                <div class="stat-mini-chart" id="avgMonthlyChart"></div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-header">
+                    <div class="stat-icon purple">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                        </svg>
+                    </div>
+                    <span class="stat-change negative">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                        -5.3%
+                    </span>
+                </div>
+                <h3 class="stat-value">$3,421</h3>
+                <p class="stat-label">This Month</p>
+                <div class="stat-mini-chart" id="thisMonthChart"></div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-header">
+                    <div class="stat-icon orange">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                    </div>
+                    <span class="stat-change positive">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <polyline points="18 15 12 9 6 15"></polyline>
+                        </svg>
+                        +12.8%
+                    </span>
+                </div>
+                <h3 class="stat-value">$892</h3>
+                <p class="stat-label">Today</p>
+                <div class="stat-mini-chart" id="todayChart"></div>
+            </div>
+        </div>
+
+        <!-- Charts Section -->
+        <div class="charts-container">
+            <!-- Main Revenue Chart -->
+            <div class="chart-card large">
+                <div class="card-header">
+                    <h3 class="card-title">Revenue Trends</h3>
+                    <div class="chart-tabs">
+                        <button class="chart-tab active" data-chart="revenue">Revenue</button>
+                        <button class="chart-tab" data-chart="profit">Profit</button>
+                        <button class="chart-tab" data-chart="expenses">Expenses</button>
+                    </div>
+                </div>
+                <div class="chart-content" id="mainRevenueChart"></div>
+            </div>
+
+            <!-- Revenue Sources -->
+            <div class="chart-card">
+                <div class="card-header">
+                    <h3 class="card-title">Revenue Sources</h3>
+                </div>
+                <div class="chart-content" id="revenueSourcesChart"></div>
+            </div>
+        </div>
+
+        <!-- Revenue Breakdown & Top Products -->
+        <div class="details-grid">
+            <!-- Revenue Breakdown -->
+            <div class="detail-card">
+                <div class="card-header">
+                    <h3 class="card-title">Revenue Breakdown</h3>
+                </div>
+                <div class="breakdown-list">
+                    <div class="breakdown-item">
+                        <div class="breakdown-info">
+                            <div class="breakdown-icon blue">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                                    <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4>Product Sales</h4>
+                                <p>Direct purchases</p>
+                            </div>
+                        </div>
+                        <div class="breakdown-value">
+                            <span class="amount">$45,234</span>
+                            <span class="percentage">36.3%</span>
+                        </div>
+                    </div>
+
+                    <div class="breakdown-item">
+                        <div class="breakdown-info">
+                            <div class="breakdown-icon green">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4>Subscriptions</h4>
+                                <p>Monthly recurring</p>
+                            </div>
+                        </div>
+                        <div class="breakdown-value">
+                            <span class="amount">$38,921</span>
+                            <span class="percentage">31.2%</span>
+                        </div>
+                    </div>
+
+                    <div class="breakdown-item">
+                        <div class="breakdown-info">
+                            <div class="breakdown-icon purple">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <path d="M12 6v6l4 2"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4>Services</h4>
+                                <p>Consulting & support</p>
+                            </div>
+                        </div>
+                        <div class="breakdown-value">
+                            <span class="amount">$25,678</span>
+                            <span class="percentage">20.6%</span>
+                        </div>
+                    </div>
+
+                    <div class="breakdown-item">
+                        <div class="breakdown-info">
+                            <div class="breakdown-icon orange">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4>Affiliate</h4>
+                                <p>Partner commissions</p>
+                            </div>
+                        </div>
+                        <div class="breakdown-value">
+                            <span class="amount">$14,730</span>
+                            <span class="percentage">11.9%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Top Products -->
+            <div class="detail-card">
+                <div class="card-header">
+                    <h3 class="card-title">Top Products</h3>
+                    <a href="#" class="view-all-link">View All</a>
+                </div>
+                <div class="products-list">
+                    <div class="product-item">
+                        <div class="product-rank">1</div>
+                        <div class="product-info">
+                            <h4>Premium Plan</h4>
+                            <p>$29/month subscription</p>
+                        </div>
+                        <div class="product-stats">
+                            <span class="product-revenue">$15,678</span>
+                            <span class="product-sales">523 sales</span>
+                        </div>
+                    </div>
+
+                    <div class="product-item">
+                        <div class="product-rank">2</div>
+                        <div class="product-info">
+                            <h4>Enterprise License</h4>
+                            <p>One-time purchase</p>
+                        </div>
+                        <div class="product-stats">
+                            <span class="product-revenue">$12,340</span>
+                            <span class="product-sales">87 sales</span>
+                        </div>
+                    </div>
+
+                    <div class="product-item">
+                        <div class="product-rank">3</div>
+                        <div class="product-info">
+                            <h4>Pro Plan</h4>
+                            <p>$19/month subscription</p>
+                        </div>
+                        <div class="product-stats">
+                            <span class="product-revenue">$9,876</span>
+                            <span class="product-sales">412 sales</span>
+                        </div>
+                    </div>
+
+                    <div class="product-item">
+                        <div class="product-rank">4</div>
+                        <div class="product-info">
+                            <h4>Consulting Hours</h4>
+                            <p>$150/hour service</p>
+                        </div>
+                        <div class="product-stats">
+                            <span class="product-revenue">$7,234</span>
+                            <span class="product-sales">48 sales</span>
+                        </div>
+                    </div>
+
+                    <div class="product-item">
+                        <div class="product-rank">5</div>
+                        <div class="product-info">
+                            <h4>Custom Development</h4>
+                            <p>Project-based service</p>
+                        </div>
+                        <div class="product-stats">
+                            <span class="product-revenue">$5,892</span>
+                            <span class="product-sales">12 sales</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="assets/js/revenue.js"></script>
+</body>
+
+</html>
