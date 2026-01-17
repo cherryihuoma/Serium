@@ -1,0 +1,259 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background: #000000;
+    color: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: relative;
+    padding: 40px 0;
+}
+
+/* Animated Background - Using Custom Image */
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    background: url('../img/bg.jpg') center/cover no-repeat;
+    background-attachment: fixed;
+}
+
+.background::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.6;
+    animation: float 15s ease-in-out infinite;
+}
+
+.blob-1 {
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(26, 10, 46, 0.8) 0%, transparent 70%);
+    top: -200px;
+    right: -200px;
+}
+
+.blob-2 {
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(46, 16, 101, 0.6) 0%, transparent 70%);
+    bottom: -150px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.blob-3 {
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(26, 10, 46, 0.5) 0%, transparent 70%);
+    top: 50%;
+    left: -150px;
+    transform: translateY(-50%);
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translate(0, 0);
+    }
+    50% {
+        transform: translate(20px, 20px);
+    }
+}
+
+/* Container */
+.container {
+    position: relative;
+    z-index: 1;
+    width: 200%;
+    max-width: 600px;
+    padding: 20px;
+}
+
+/* Card - Transparent Glass Effect */
+.card {
+    background: rgba(20, 10, 30, 0.2);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border-radius: 35px;
+    padding: 40px 30px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+}
+
+/* Logo */
+.logo {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.logo svg {
+    filter: drop-shadow(0 0 8px rgba(136, 136, 136, 0.3));
+}
+
+/* Brand */
+.brand {
+    text-align: center;
+    font-size: 26px;
+    font-weight: 600;
+    letter-spacing: 6px;
+    margin-bottom: 8px;
+    color: #ffffff;
+}
+
+/* Welcome Text */
+.welcome {
+    text-align: center;
+    font-size: 25px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 25px;
+}
+
+/* Form */
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+/* Input Group */
+.input-group {
+    position: relative;
+}
+
+.input-group label {
+    display: block;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 6px;
+    font-weight: 400;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px 15px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    color: #ffffff;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+.input-group input::placeholder {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+.input-group input:focus {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+/* Primary Button */
+.btn-primary {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, rgba(60, 30, 100, 0.8) 0%, rgba(40, 20, 80, 0.8) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 8px;
+    letter-spacing: 0.5px;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, rgba(70, 35, 110, 0.9) 0%, rgba(50, 25, 90, 0.9) 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(60, 30, 100, 0.4);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+}
+
+/* Footer Text */
+.footer-text {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.footer-text a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.footer-text a:hover {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Error States */
+.input-group.error input {
+    border-color: #ff4444;
+}
+
+.error-message {
+    color: #ff4444;
+    font-size: 11px;
+    margin-top: 4px;
+    display: none;
+}
+
+.input-group.error .error-message {
+    display: block;
+}
+
+/* Loading State */
+.btn-primary.loading {
+    pointer-events: none;
+    opacity: 0.7;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+    .container {
+        max-width: 100%;
+        padding: 15px;
+    }
+    
+    .card {
+        padding: 35px 25px;
+        border-radius: 30px;
+    }
+    
+    .brand {
+        font-size: 22px;
+    }
+}
