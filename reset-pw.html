@@ -1,35 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SignUp</title>
+    <link rel="stylesheet" href="assets0.1/css/main.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Reset Password</title>
-  <link rel="stylesheet" href="assets0.1/css/main.css" />
-</head>
-
-<body>
-  <div class="background">
-    <div class="glasscard">
-      <h2>Reset Password</h2>
-
-      <p class="subtitle">Create a new password for your account</p>
-      <form action="sign_in.html">
-        <div class="form">
-          <label>New Password</label>
-          <input type="password" title="password" required />
+  <body>
+    <div class="background">
+      <div class="glasscard">
+        <div class="logo">
+          Serium
+          <div class="logo-name"></div>
         </div>
 
-        <div class="form">
-          <label>Confirm Password</label>
-          <input type="password" title="password" required />
-        </div>
+        <h2>Create Account</h2>
 
-        <button type="submit">Reset Password</button>
-      </form>
-      <a href="sign_in.html" class="back">Back to Login</a>
+        <p class="subtitle">Sign up to get started on your account.</p>
+        <form action="dashboard.html">
+          <div class="form">
+            <label>Full Name</label>
+            <input type="text" title="name" required />
+          </div>
+
+          <div class="form">
+            <label>Email Address</label>
+            <input type="email" title="email" required />
+          </div>
+
+          <div class="form">
+            <label>Password</label>
+            <input type="text" title="password" required />
+          </div>
+
+          <div class="form">
+            <label>Confirm Password</label>
+            <input type="text" title="confirm password" />
+          </div>
+
+          <button type="submit">Create Account</button>
+        </form>
+        <p class="signup">
+          Already have an account?<a href="sign_in.html"> <span>Login</span></a>
+        </p>
+      </div>
     </div>
-  </div>
-</body>
-
+  </body>
 </html>
